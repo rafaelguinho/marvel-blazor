@@ -1,0 +1,16 @@
+<div>
+    <p>@Hero.Name</p>
+    <p><img src=@Hero.ImageURL /></p>
+    <p>@Hero.Description</p>
+</div>
+
+<div>
+    @foreach (var comic in Hero.Comics)
+    {
+        <ShowComic Comic=@comic/>
+    }
+</div>
+
+@functions {
+    [Parameter] Hero Hero { get; set; }
+}

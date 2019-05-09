@@ -1,0 +1,48 @@
+
+@inject HttpClient client
+
+
+<div class="search__container">
+    <p class="search__title">
+        Go ahead, and find your favorite heroes
+    </p>
+    <input class="search__input" type="text" placeholder="Search" bind=@this.Value />
+    <button onclick=@(async () => await SearchHero())>Search</button>
+</div>
+<div>
+    @if(hero != null){
+        <ShowHero Hero=@hero/>
+    }
+    
+</div>
+
+@if(searching){
+     <p>Searching...</p>   
+    }
+
+@functions {
+    Hero hero = null;
+    bool searching = false;
+    public string Value { get; set; }
+    private async Task SearchHero()
+    {
+        searching = true;
+        hero = null;
+
+        var result = await GetHeroesAsync($"?name={Value}&ts=1&apikey=39212139ecb40b5fb10e3b724d5c6725&hash=3d0f592e813275da73776cc3089b2b71");
+    
+        hero = result.ToHero("standard_xlarge");
+        searching = false;
+
+    }
+
+    protected override void OnInit()
+    {
+        client.BaseAddress = new Uri("http://gateway.marvel.com/v1/public/characters");
+    }
+
+     async Task<ApiResult> GetHeroesAsync(string path)
+        {
+            return await client.GetJsonAsync<ApiResult>(path);
+        }
+}

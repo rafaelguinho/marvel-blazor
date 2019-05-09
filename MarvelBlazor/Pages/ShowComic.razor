@@ -1,0 +1,12 @@
+<div>
+    <p>@Comic.Name</p>
+</div>
+
+@functions {
+    [Parameter] HeroComic Comic { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+        //return await client.GetJsonAsync<ApiResult>(Comic.ResourceURI);
+    }
+}
