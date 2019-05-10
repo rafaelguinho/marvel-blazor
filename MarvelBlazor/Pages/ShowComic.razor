@@ -1,12 +1,21 @@
+@inject HttpClient client
 <div>
+    
+    @if(!string.IsNullOrEmpty(imageURL)){
+        <img src=@imageURL/>
+    }
+
     <p>@Comic.Name</p>
 </div>
 
 @functions {
+    string imageURL = null;
     [Parameter] HeroComic Comic { get; set; }
 
     protected override async Task OnInitAsync()
     {
-        //return await client.GetJsonAsync<ApiResult>(Comic.ResourceURI);
+        var result = await client.GetJsonAsync<ApiComicsResult>($"{Comic.ResourceURI}?ts=1&apikey=39212139ecb40b5fb10e3b724d5c6725&hash=3d0f592e813275da73776cc3089b2b71");
+        imageURL = result.GetCover("portrait_medium");
+        Console.WriteLine(imageURL);
     }
 }
