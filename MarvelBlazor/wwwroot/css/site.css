@@ -1,4 +1,59 @@
-﻿#comicsPanel{
+﻿body{
+    background-color: black;
+    color: whitesmoke
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+h1 {
+    font-size: 1.9rem;
+}
+.hero_details{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 2;
+}
+.hero_image{
+    border-radius: 50%;
+}
+.hero_name{
+    color: #ed1d24
+}
+.main{
+    height: calc(100vh - 1em);
+    margin: 0.5em;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: space-between
+}
+#comicsPanel{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    align-items: center;
     flex-direction: row;
+}
+.comic{
+    scroll-snap-align: center;
+  margin: .1em .7em;
+  width: 100px;
+}
+.comic_img_container{
+    height: 150px;
+}
+.comic p{
+    text-overflow: ellipsis;
+    margin: .1em 0;
+
+  white-space: nowrap;
+  overflow: hidden;
 }

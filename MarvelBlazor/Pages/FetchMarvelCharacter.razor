@@ -3,18 +3,15 @@
 
 
 <div class="search__container">
-    <p class="search__title">
-        Go ahead, and find your favorite heroes
-    </p>
-    <input class="search__input" type="text" placeholder="Search" bind=@this.Value />
+    <input class="search__input" type="search" placeholder="Go ahead, and find your favorite heroes" bind=@this.Value />
     <button onclick=@(async () => await SearchHero())>Search</button>
 </div>
-<div>
+
     @if(hero != null){
         <ShowHero Hero=@hero/>
     }
     
-</div>
+
 
 @if(searching){
      <p>Searching...</p>   
