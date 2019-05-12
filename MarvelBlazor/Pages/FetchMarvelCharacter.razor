@@ -2,20 +2,28 @@
 @inject HttpClient client
 
 
-<div class="search__container">
-    <input class="search__input" type="search" placeholder="Go ahead, and find your favorite heroes" bind=@this.Value />
-    <button onclick=@(async () => await SearchHero())>Search</button>
-</div>
+<header class="l-header">
+      <div>
+        <img src="img/logo-marvel.svg" class="header--logo" alt="Home logo">
+      </div>
+      
+        <div class="ais-search-box">
+            <input type="search" class="header--input ais-search-box--input" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Go ahead, and find your favorite heroes" spellcheck="false" bind=@this.Value/>
+            <button class="search-button" onclick=@(async () => await SearchHero())></button>
+        </div>
+      
+      
+    </header>
 
+<div class="main_content">
     @if(hero != null){
         <ShowHero Hero=@hero/>
     }
-    
 
-
-@if(searching){
-     <p>Searching...</p>   
+    @if(searching){
+         <p>Searching...</p>   
     }
+</div>
 
 @functions {
     Hero hero = null;

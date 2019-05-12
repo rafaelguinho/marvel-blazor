@@ -1,0 +1,111 @@
+
+
+input {
+    appearance: none
+}
+
+
+.l-header {
+    height: 60px
+}
+
+
+.l-header {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    background: #ed1d24
+}
+
+.header--logo {
+    height: 50px;
+}
+
+
+.header--input {
+    border: 0;
+    margin-right: 5px;
+    border-bottom: 2px solid rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.8);
+    height: 36px;
+    margin-top: 10px;
+    font-size: 1rem;
+    flex-grow: 1;
+    background-color: transparent;
+}
+.ais-search-box{
+    display: flex;
+    flex-grow: 1;
+}
+
+.search-button{
+    background:url(/img/search-icon.svg) no-repeat;
+    
+    background-position-y: bottom;
+    cursor:pointer;
+    border:none;
+    width:50px;
+    height:50px;
+}
+
+.search-button:active  /* use Dot here */
+{   
+    background:url(/img/search-icon.svg) no-repeat;
+}
+
+.header--input::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.8)
+}
+
+.header--input::-moz-placeholder {
+    color: rgba(255,255,255,0.8)
+}
+
+.header--input:-ms-input-placeholder {
+    color: rgba(255,255,255,0.8)
+}
+
+.header--inputinput:-moz-placeholder {
+    color: rgba(255,255,255,0.8)
+}
+
+.header--input:focus {
+    outline: none;
+    border-color: #fff;
+    color: #fff
+}
+
+.header--input:focus::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.6)
+}
+
+.header--input:focus::-moz-placeholder {
+    color: rgba(255,255,255,0.6)
+}
+
+.header--input:focus:-ms-input-placeholder {
+    color: rgba(255,255,255,0.6)
+}
+
+.header--input:focusinput:-moz-placeholder {
+    color: rgba(255,255,255,0.6)
+}
+
+.header--infos {
+    display: none;
+    position: relative
+}
+
+@media (min-width: 1080px) {
+    .header--infos {
+        display:block;
+        flex: 1
+    }
+}
+
+.header--current-refined-values {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px
+}
