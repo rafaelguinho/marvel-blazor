@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using static Util;
 public class ResultComics
 {
     public Thumbnail thumbnail { get; set; }
@@ -15,11 +16,6 @@ public class ApiComicsResult
 
     public string GetCover(string imageVariant){
         var uri =  $"{data?.results[0].thumbnail.path}/{imageVariant}.{data?.results[0].thumbnail.extension}";
-        return ChangeToHttps(uri);
-    }
-    private string ChangeToHttps(string uri){
-        if(string.IsNullOrEmpty(uri)) return null;
-
-        return uri.Replace("http","https");
+        return uri.ChangeToHttps();
     }
 }

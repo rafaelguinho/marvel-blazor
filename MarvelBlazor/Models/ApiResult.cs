@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using static Util;
 public class Thumbnail
 {
     public string path { get; set; }
@@ -14,7 +15,7 @@ public class Item
 
     public HeroComic ToHeroComic(){
         return new HeroComic{
-            ResourceURI = resourceURI,
+            ResourceURI = resourceURI.ChangeToHttps(),
             Name = name
         };
     }
