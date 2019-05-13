@@ -43,7 +43,7 @@
 
     protected override void OnInit()
     {
-        client.BaseAddress = new Uri("http://gateway.marvel.com/v1/public/characters");
+        client.BaseAddress = new Uri("https://gateway.marvel.com/v1/public/characters");
     }
 
      async Task<ApiResult> GetHeroesAsync(string path)
